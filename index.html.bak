@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	
+	<style type="text/css">
+		body{
+			background: black;
+		}
+		.heart{
+			    margin: 155px auto;
+			    width: 150px;
+			    height: 150px;
+			    /* border: 1px solid #0094ff; */
+			    position: relative;
+			    animation-name: shake;
+			    animation-duration: .5s;
+			    animation-iteration-count: infinite;
+		}
+		.heart div {
+		    /* border: 1px solid #0094ff; */
+		    width: 100%;
+		    height: 100%;
+		    position: absolute;
+		    background: pink;
+		    animation-name: shadow;
+		    animation-duration: .5s;
+		    animation-iteration-count: infinite;
+		}
+		
+		.topLeft {
+		    transform: translate(-50px, 0) rotate(-45deg);
+		}
+		.topLeft, .topRight {
+		    border-radius: 100px 100px 0 0;
+		}
+		.bottom {
+		    transform: translate(0, 61px) rotate(45deg) scale(.9, .9);
+		}
+		.topRight {
+		    transform: translate(50px, 0) rotate(45deg);
+		}
+		@keyframes shake{
+			0% {
+			    transform: scale(.9, .9);
+			}
+			100% {
+			    transform: scale(1.1, 1.1);
+			}
+		}
+		
+		@keyframes shadow{
+			0% {
+			}
+			100% {
+			    box-shadow: 0px 0px 50px pink;
+			}
+		}
+		
+		
+		div#show-text {
+		    width: 200px;
+		    margin: 0 auto;
+		    line-height: 25px;
+		}
+	</style>
+	<body>
+		
+		
+		
+		
+		<div class="heart">
+			<div class="topLeft"></div>
+			<div class="topRight"></div>
+			<div class="bottom"></div>
+		</div>
+		
+	<div id="show-text">
+	     <p  style="color:white;font-size:14px;font-family:'微软雅黑';"><span id="bbb"></span><span id="gb">_<span></p>
+	</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</body>
+</html>
+<script src="jquery-1.12.0.min.js" type="text/javascript" charset="utf-8"></script>
+ <script type="text/javascript"> 
+ var text="厉害了~~·我希望，温柔只给我最好了~"
+    
+ function printer(text){ 
+     var l = text.length;
+    var t = 0;
+     var arr = [];    
+    for(var i = 0; i < l; i++){        arr[i] = text.substr(i,1);    
+     }      
+     setInterval(function(){ $("#gb").fadeOut(100).fadeIn(100); },300); 
+     var init = setInterval(function(){
+     if(t < l){    
+         $("#bbb").append(arr[t]);
+         if((t!==(l-1))&&(t%8==7)){
+             $("#bbb").append('<br/>');
+        }    
+         t++;    
+         }else{
+        clearInterval(init);            
+        }
+ },500);
+         
+ }
+ 
+     printer(text);
+ </script>
